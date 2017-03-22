@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true
+  },
+  "files": [
+    "./src/server/plugins/typescript-test.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
