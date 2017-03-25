@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./dist/js",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
@@ -9,7 +9,7 @@
     "allowJs": true
   },
   "files": [
-    "./src/server/plugins/typescript-test.ts"
+    "./src/client/components/test-typescript.tsx"
   ],
   "exclude": [
     "node_modules"

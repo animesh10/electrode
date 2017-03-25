@@ -18,9 +18,6 @@
     "./server/plugins/updateStorage": {
       "module": "./{{env.APP_SRC_DIR}}server/plugins/update-storage"
     },
-    "./server/plugins/typescriptTest": {
-      "module": "./{{env.APP_SRC_DIR}}server/plugins/typescript-test"
-    },
     "webapp": {
       "module": "electrode-react-webapp/lib/hapi",
       "options": {

@@ -7,8 +7,8 @@ import { CSRF } from "./components/csrf";
 import AboveFold from "./components/above-the-fold";
 import PushNotifications from "./components/push-notifications";
 import TodoApp from "./components/todo-app";
-import HelloTypescript from "./components/hello-typescript";
-//import { Hello } from "./components/test-typescript";
+//import HelloTypescript from "./components/hello-typescript";
+import { Hello } from "./components/test-typescript";
 
 
 export const routes = (
@@ -20,6 +20,6 @@ export const routes = (
     <Route path="above-the-fold" component={AboveFold} />
     <Route path="push-notifications" component={PushNotifications} />
     <Route path="todo-app" component={TodoApp} />
-    <Route path="typescript" component={HelloTypescript} />
+    <Route path="typescript" component={Hello} />
   </Route>
 );

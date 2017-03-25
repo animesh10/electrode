@@ -18,6 +18,7 @@ const orders = [
   "_test-entry",
   "_test-output",
   "_test-resolve",
+  "_typescript",
   "_babel",
   "_extract-style",
   "_fonts",
