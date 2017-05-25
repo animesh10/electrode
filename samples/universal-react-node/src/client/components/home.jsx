@@ -52,7 +52,13 @@ export class Home extends React.Component {
           <li><a href="/record-store">MongoDB Example</a></li>
         </ul>
         <p>{this.props.data}</p>
-      </div>
+        <iframe
+          width="600"
+          height="450"
+          frameBorder="0" style={{ border: 0 }}
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDyNxk4jNLQwKpQP8twL1h9kLpTmwDr2D4&q=Space+Needle,Seattle+WA" >
+        </iframe>
+      </div >
     );
   }
 }
