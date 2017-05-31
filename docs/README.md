@@ -68,9 +68,9 @@ Built with ♡ by [Team Electrode] @WalmartLabs.
 [Announcement Blog]: https://medium.com/walmartlabs/introducing-electrode-an-open-source-release-from-walmartlabs-14b836135319#.pwbddxg1z
 [material-ui]: http://www.material-ui.com
 [Lerna]: https://lernajs.io/
-[electrode-archetype-react-app]: packages/electrode-archetype-react-app
-[electrode-archetype-react-app-dev]: packages/electrode-archetype-react-app-dev
-[generator-electrode]: packages/generator-electrode
+[electrode-archetype-react-app]: https://github.com/electrode-io/electrode/tree/master/packages/electrode-archetype-react-app
+[electrode-archetype-react-app-dev]: https://github.com/electrode-io/electrode/tree/master/packages/electrode-archetype-react-app-dev
+[generator-electrode]: ../packages/generator-electrode
 [travis-image]: https://travis-ci.org/electrode-io/electrode.svg?branch=master
 [travis-url]: https://travis-ci.org/electrode-io/electrode
 [daviddm-image]: https://david-dm.org/electrode-io/electrode/dev-status.svg
