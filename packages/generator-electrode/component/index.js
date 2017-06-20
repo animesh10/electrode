@@ -300,13 +300,11 @@ var ReactComponentGenerator = yeoman.Base.extend({
         "\n" +
         chalk.green.underline("Your new Electrode component is ready!") +
         "\n" +
-        "\nYour component is in packages/" +
-        this.packageName +
-        " and your demo app is " +
-        this.appName +
+        "\nYour component is in " + this.packageName + "/packages" +
+
+        " and your demo app is " + this.packageName + "/" + this.appName +
         "\n" +
-        "\nType 'cd ../" +
-        this.appName +
+        "\nType 'cd " + this.packageName + "/" + this.appName +
         "' then 'gulp dev' to run the development build for the demo app." +
         "\n"
       );

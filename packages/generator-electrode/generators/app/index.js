@@ -389,7 +389,7 @@ module.exports = generators.Base.extend({
       this.fs.copyTpl(
         this.templatePath(getDemoFilePath('archetype')),
         this.destinationPath('archetype'),
-        { componentName: packageName }
+        { components: [packageName] }
       )
       //copy home file
       this.fs.copyTpl(
