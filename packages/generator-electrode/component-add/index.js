@@ -11,6 +11,8 @@ var extend = _.merge;
 var parseAuthor = require("parse-author");
 var githubUsername = require("github-username");
 var glob = require("glob");
+var nodeFS = require("fs");
+var demoHelperPath = require.resolve('electrode-demo-helper');
 
 /*
 * This generator should check that it is invoked from within a packages folder
@@ -129,6 +131,16 @@ module.exports = generators.Base.extend({
     );
   },
   writing: function () {
+
+    let getDemoFilePath = function (filepath) {
+      try {
+        let demoFilePath = path.resolve(demoHelperPath, '..', filepath);
+        return demoFilePath;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
     //add new package to the dependencies
     let dependencies = {};
     dependencies[this.packageName] = "../packages/" + this.packageName;
@@ -167,56 +179,12 @@ module.exports = generators.Base.extend({
       newHomeString
     );
 
-    const modifyWPConfig = configFile => {
-
-      let wpConfigArray = wpConfig.split("\n");
-      let aliasEntry = '"' + this.packageName + '": Path.join(repoPackagesDir, "' + this.packageName + '/src"),';
-      let modulesEntryNM = 'Path.join(repoPackagesDir, "' + this.packageName + '/node_modules"),';
-      let modulesEntry = 'Path.join(repoPackagesDir, "' + this.packageName + '"),';
-
-      let aliasIndex = wpConfigArray.findIndex((value, index, array) => {
-        if (value.match("alias")) {
-          return index;
-        }
-      });
-
-      let configWithAlias = wpConfigArray.splice(0, aliasIndex + 1);
-      configWithAlias.push(aliasEntry);
-
-      let modulesIndex = wpConfigArray.findIndex((value, index, array) => {
-        if (value.match("modules")) {
-          return index;
-        }
-      });
-
-      let fromAliastoModules = wpConfigArray.splice(0, modulesIndex + 1);
-
-      fromAliastoModules.push(modulesEntry);
-      fromAliastoModules.push(modulesEntryNM);
-
-      let configString = configWithAlias.concat(fromAliastoModules).concat(wpConfigArray).join("\n");
-      return configString;
-
-    };
-    //write new component to archetype/webpack
-    let wpConfig = this.fs.read(
-      this.destinationPath("../../" + this.demoAppName + "/archetype/config/webpack/webpack.config.js")
-    );
-    let wpConfigDev = this.fs.read(
-      this.destinationPath("../../" + this.demoAppName + "/archetype/config/webpack/webpack.config.dev.js")
-    );
-
-    let newWpConfigString = modifyWPConfig(wpConfig);
-    let newWpDevConfigString = modifyWPConfig(wpConfigDev);
-    this.fs.write(
-      this.destinationPath("../../" + this.demoAppName + "/archetype/config/webpack/webpack.config.js"),
-      newWpConfigString
-    );
-
-    this.fs.write(
-      this.destinationPath("../../" + this.demoAppName + "/archetype/config/webpack/webpack.config.dev.js"),
-      newWpDevConfigString
-    );
+    let dirs = nodeFS.readdirSync(this.destinationPath(".."));
+    this.fs.copyTpl(
+      this.templatePath(getDemoFilePath('archetype')),
+      this.destinationPath('../../demo-app/archetype'),
+      { components: dirs }
+    )
   },
 
   end: function () {
