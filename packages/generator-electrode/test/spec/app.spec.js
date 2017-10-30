@@ -6,7 +6,7 @@ const helpers = require("yeoman-test");
 const Promise = require("pinkie-promise");
 
 describe("electrode:app", function() {
-  this.timeout(10000);
+  this.timeout(180000);
   before(function() {
     mockery.enable({
       warnOnReplace: false,
@@ -40,7 +40,10 @@ describe("electrode:app", function() {
         authorUrl: "http://electrode.io",
         keywords: ["foo", "bar"]
       };
-      return helpers.run(path.resolve("generators/app")).withPrompts(this.answers).toPromise();
+      return helpers
+        .run(path.resolve("generators/app"))
+        .withPrompts(this.answers)
+        .toPromise();
     });
 
     it("creates files", function() {
@@ -81,6 +84,11 @@ describe("electrode:app", function() {
     it("creates and fills the pageTitle field in config/default.js", function() {
       assert.file("./config/default.js");
       assert.fileContent("./config/default.js", `"pageTitle": "generator-electrode"`);
+    });
+
+    it("does not create expressServer or koa file", function() {
+      assert.noFile("./src/server/express-server.js");
+      assert.noFile("./src/server/koa-server.js");
     });
   });
 });

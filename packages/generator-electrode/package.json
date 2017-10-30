@@ -15,17 +15,9 @@
     "email": "xchen@walmartlabs.com",
     "url": "https://github.com/jchip"
   },
-  "files": [
-    "generators",
-    "component",
-    "component-add"
-  ],
+  "files": ["generators", "component", "component-add"],
   "main": "generators/index.js",
-  "keywords": [
-    "Electrode",
-    "React",
-    "yeoman-generator"
-  ],
+  "keywords": ["Electrode", "React", "yeoman-generator"],
   "dependencies": {
     "chalk": "^1.0.0",
     "generator-license": "^5.1.0",
@@ -62,17 +54,7 @@
   },
   "nyc": {
     "all": true,
-    "reporter": [
-      "lcov",
-      "text",
-      "text-summary"
-    ],
-    "exclude": [
-      "coverage",
-      "*clap.js",
-      "gulpfile.js",
-      "dist",
-      "test"
-    ]
+    "reporter": ["lcov", "text", "text-summary"],
+    "exclude": ["coverage", "*clap.js", "gulpfile.js", "dist", "test", "**/templates/**"]
   }
 }
